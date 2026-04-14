@@ -161,10 +161,11 @@
   #ribbon{
     position:sticky;top:0;z-index:9999;
     background:linear-gradient(90deg,var(--gd),var(--gb),var(--gd));
-    text-align:center;padding:9px 20px;
+    text-align:center;padding:16px 20px;
     font-family:'Poppins',sans-serif;font-weight:800;
-    font-size:clamp(11px,1.6vw,14px);color:var(--cd);
+    font-size:clamp(13px,1.8vw,16px);color:var(--cd);
     letter-spacing:.03em;box-shadow:0 2px 10px rgba(0,0,0,.3);
+    line-height:1.4;
   }
 
   /* =====================================================
@@ -780,6 +781,54 @@
   .fi{opacity:1}
 
   /* =====================================================
+     HERO PHOTO CAROUSEL (3 imagens topo)
+  ===================================================== */
+  #hero-top-car{background:#F5E3C0;padding:0;overflow:hidden;position:relative}
+  .htc-wrap{position:relative;overflow:hidden}
+  .htc-track{display:flex;transition:transform .5s ease}
+  .htc-slide{min-width:100%;max-height:320px;overflow:hidden;flex-shrink:0}
+  .htc-slide img{width:100%;height:320px;object-fit:cover;display:block}
+  .htc-dots{display:flex;justify-content:center;gap:8px;padding:10px 0 6px}
+  .htc-dot{width:8px;height:8px;border-radius:50%;background:var(--car);cursor:pointer;transition:background .3s,transform .3s}
+  .htc-dot.active{background:var(--cm);transform:scale(1.3)}
+
+  /* =====================================================
+     SECAO MARROM "DEJA LOS ULTRAPROCESADOS"
+  ===================================================== */
+  #sec-ultra{background:#3D1A00;padding:60px 20px;text-align:center}
+  #sec-ultra p{
+    font-size:clamp(15px,2.2vw,20px);color:var(--cl);
+    line-height:1.75;max-width:640px;margin:0 auto;
+    font-style:italic;font-weight:300;
+  }
+  #sec-ultra p strong{color:var(--gb);font-weight:700;font-style:normal}
+
+  /* =====================================================
+     CARROSSEL FOTOS (6 imagens)
+  ===================================================== */
+  #sec-photo-car{background:#F5E3C0;padding:40px 0 50px;overflow:hidden}
+  .pcar-wrap{position:relative;overflow:hidden}
+  .pcar-track{display:flex;gap:14px;animation:pcarScroll 22s linear infinite;width:max-content}
+  .pcar-track:hover{animation-play-state:paused}
+  @keyframes pcarScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .pcar-slide{width:260px;height:200px;border-radius:14px;overflow:hidden;flex-shrink:0;box-shadow:0 6px 20px rgba(61,26,0,.18)}
+  .pcar-slide img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* =====================================================
+     SECAO MARROM "LO QUE DESCUBRIRAS"
+  ===================================================== */
+  #sec-descubre{background:#3D1A00;padding:70px 20px;text-align:center}
+  #sec-descubre h2{
+    font-size:clamp(22px,4vw,36px);font-weight:900;
+    color:var(--sw);margin-bottom:16px;line-height:1.25;
+  }
+  #sec-descubre h2 span{color:var(--gb)}
+  #sec-descubre p{
+    font-size:clamp(14px,1.8vw,17px);color:var(--cr);
+    line-height:1.75;max-width:580px;margin:0 auto;
+  }
+
+  /* =====================================================
      RESPONSIVE
   ===================================================== */
   @media(max-width:960px){
@@ -800,7 +849,10 @@
     .bonos-grid{grid-template-columns:1fr}
     .pack-img-wrap{grid-template-columns:repeat(2,1fr)}
     .btn-lg{font-size:15px;padding:18px 28px}
-    #ribbon{font-size:11px}
+    #ribbon{font-size:13px;padding:14px 16px}
+    .pcar-slide{width:200px;height:160px}
+    .htc-slide img{height:240px}
+    .htc-slide{max-height:240px}
   }
   </style>
 </head>
@@ -812,6 +864,25 @@
 <div id="ribbon">
   Come sin culpa y genera ingresos desde tu cocina &mdash; con 80% OFF hoy
 </div>
+
+
+<!-- ===================================================
+     HERO TOP CAROUSEL (3 imagens)
+=================================================== -->
+<section id="hero-top-car">
+  <div class="htc-wrap">
+    <div class="htc-track" id="htcTrack">
+      <div class="htc-slide"><img src="https://i.postimg.cc/yYCzyJdX/Captura-de-tela-2026-04-13-152425.png" alt=""/></div>
+      <div class="htc-slide"><img src="https://i.postimg.cc/nhHbN6q7/Captura-de-tela-2026-04-13-152418.png" alt=""/></div>
+      <div class="htc-slide"><img src="https://i.postimg.cc/wBMKjLfp/Captura-de-tela-2026-04-13-152431.png" alt=""/></div>
+    </div>
+  </div>
+  <div class="htc-dots" id="htcDots">
+    <div class="htc-dot active" onclick="htcGo(0)"></div>
+    <div class="htc-dot" onclick="htcGo(1)"></div>
+    <div class="htc-dot" onclick="htcGo(2)"></div>
+  </div>
+</section>
 
 
 <!-- ===================================================
@@ -829,6 +900,11 @@
       <p class="hero-sub-txt">
         54 recetas de barras sin azúcar — frutos secos, semillas y avena — para comer rico sin culpa y generar ingresos reales sin salir de casa
       </p>
+
+      <!-- Foto produto -->
+      <div style="margin:20px auto 0;max-width:360px;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(61,26,0,.18)">
+        <img src="https://i.postimg.cc/tCqBbyvw/Captura-de-tela-2026-04-13-152437.png" alt="54 Recetas de Barras" style="width:100%;display:block"/>
+      </div>
 
       <!-- Ebook image -->
       <div class="hero-ebook">
@@ -854,11 +930,6 @@
         <li><span class="chk">✔</span> Perfectas para consumo personal o para vender</li>
       </ul>
 
-      <p class="hero-extra">
-        Deja los ultraprocesados y sorpréndete con recetas caseras premium.<br/>
-        Snacks fáciles, sin azúcar y llenos de sabor, que cambiarán la forma en que tú y tu familia disfrutan lo dulce.
-      </p>
-
       <!-- Countdown -->
       <div class="cd-bar">
         <span class="cd-lbl">⏳ Oferta expira en:</span>
@@ -883,6 +954,68 @@
 
   </div>
 </section>
+
+<!-- wave hero → marrom -->
+<div class="wave" style="background:#F5E3C0">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:46px;vertical-align:bottom"><path d="M0,42 C480,48 960,36 1440,42 L1440,80 L0,80Z" fill="#3D1A00"/></svg>
+</div>
+
+<!-- ===================================================
+     SECAO MARROM — DEJA LOS ULTRAPROCESADOS
+=================================================== -->
+<section id="sec-ultra">
+  <p>
+    <strong>Deja los ultraprocesados</strong> y sorpréndete con recetas caseras premium.<br/>
+    Snacks fáciles, sin azúcar y llenos de sabor, que cambiarán la forma en que tú y tu familia disfrutan lo dulce.
+  </p>
+</section>
+
+<!-- wave marrom → bege -->
+<div class="wave" style="background:#3D1A00">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:46px;vertical-align:bottom"><path d="M0,44 C480,38 960,50 1440,44 L1440,80 L0,80Z" fill="#F5E3C0"/></svg>
+</div>
+
+<!-- ===================================================
+     CARROSSEL FOTOS (6 imagens)
+=================================================== -->
+<section id="sec-photo-car">
+  <div class="pcar-wrap">
+    <div class="pcar-track">
+      <div class="pcar-slide"><img src="https://i.postimg.cc/kXGWw5pX/Captura-de-tela-2026-04-13-152457.png" alt=""/></div>
+      <div class="pcar-slide"><img src="https://i.postimg.cc/2SBhRKmR/Captura-de-tela-2026-04-13-152502.png" alt=""/></div>
+      <div class="pcar-slide"><img src="https://i.postimg.cc/tgQPXNCP/Captura-de-tela-2026-04-13-152504.png" alt=""/></div>
+      <div class="pcar-slide"><img src="https://i.postimg.cc/NMQHXGXq/Captura-de-tela-2026-04-13-152507.png" alt=""/></div>
+      <div class="pcar-slide"><img src="https://i.postimg.cc/2y6LHHTG/Captura-de-tela-2026-04-13-152510.png" alt=""/></div>
+      <div class="pcar-slide"><img src="https://i.postimg.cc/L5bYGzb6/Captura-de-tela-2026-04-13-152513.png" alt=""/></div>
+      <!-- duplicado para loop infinito -->
+      <div class="pcar-slide"><img src="https://i.postimg.cc/kXGWw5pX/Captura-de-tela-2026-04-13-152457.png" alt=""/></div>
+      <div class="pcar-slide"><img src="https://i.postimg.cc/2SBhRKmR/Captura-de-tela-2026-04-13-152502.png" alt=""/></div>
+      <div class="pcar-slide"><img src="https://i.postimg.cc/tgQPXNCP/Captura-de-tela-2026-04-13-152504.png" alt=""/></div>
+      <div class="pcar-slide"><img src="https://i.postimg.cc/NMQHXGXq/Captura-de-tela-2026-04-13-152507.png" alt=""/></div>
+      <div class="pcar-slide"><img src="https://i.postimg.cc/2y6LHHTG/Captura-de-tela-2026-04-13-152510.png" alt=""/></div>
+      <div class="pcar-slide"><img src="https://i.postimg.cc/L5bYGzb6/Captura-de-tela-2026-04-13-152513.png" alt=""/></div>
+    </div>
+  </div>
+</section>
+
+<!-- wave bege → marrom -->
+<div class="wave" style="background:#F5E3C0">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:46px;vertical-align:bottom"><path d="M0,40 C360,46 720,38 1080,44 C1260,47 1380,41 1440,40 L1440,80 L0,80Z" fill="#3D1A00"/></svg>
+</div>
+
+<!-- ===================================================
+     SECAO MARROM — LO QUE DESCUBRIRAS
+=================================================== -->
+<section id="sec-descubre">
+  <h2>Lo que descubrirás dentro de este<br/><span>Recetario de BARRAS</span></h2>
+  <p>Recetas fáciles, explicadas paso a paso para que disfrutes snacks deliciosos en casa o los conviertas en tu nueva fuente de ingresos.</p>
+</section>
+
+<!-- wave marrom → bege -->
+<div class="wave" style="background:#3D1A00">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:46px;vertical-align:bottom"><path d="M0,42 C360,36 720,46 1080,40 C1260,36 1380,44 1440,42 L1440,80 L0,80Z" fill="#F5E3C0"/></svg>
+</div>
+
 
 <!-- ===================================================
      CAROUSEL
@@ -1992,6 +2125,24 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
     if(!open)item.classList.add('open');
   });
 });
+</script>
+
+<script>
+/* ---- HERO TOP CAROUSEL (3 slides) ---- */
+(function(){
+  var track=document.getElementById('htcTrack');
+  var dots=document.querySelectorAll('.htc-dot');
+  var cur=0,total=3,timer;
+  function htcSet(n){
+    cur=n;
+    track.style.transform='translateX(-'+cur*100+'%)';
+    dots.forEach(function(d,i){d.classList.toggle('active',i===cur)});
+  }
+  window.htcGo=htcSet;
+  function next(){htcSet((cur+1)%total)}
+  timer=setInterval(next,3500);
+  track.parentElement.addEventListener('touchstart',function(e){clearInterval(timer);},{ passive:true });
+})();
 </script>
 </body>
 </html>
