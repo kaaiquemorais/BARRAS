@@ -776,11 +776,8 @@
   .cd-sub{font-size:9px;font-family:'Poppins',sans-serif;
     color:var(--cr);text-align:center;display:block;margin-top:3px}
 
-  /* =====================================================
-     FADE IN
-  ===================================================== */
-  .fi{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
-  .fi.v{opacity:1;transform:translateY(0)}
+  /* FADE IN removido */
+  .fi{opacity:1}
 
   /* =====================================================
      RESPONSIVE
@@ -1985,15 +1982,6 @@
   tick();
 })();
 
-/* ---- FADE IN ---- */
-(function(){
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}
-    });
-  },{threshold:.1});
-  document.querySelectorAll('.fi').forEach(function(el){obs.observe(el)});
-})();
 
 /* ---- FAQ ---- */
 document.querySelectorAll('.faq-q').forEach(function(btn){
