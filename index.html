@@ -717,30 +717,6 @@
     font-size:12px;color:var(--ml);font-style:italic;margin-bottom:12px;
   }
 
-  /* =====================================================
-     COUNTDOWN
-  ===================================================== */
-  .cd-bar{
-    display:flex;align-items:center;justify-content:center;
-    gap:14px;flex-wrap:wrap;
-    background:rgba(231,76,60,.12);border:1.5px solid #e74c3c;
-    border-radius:var(--r);padding:14px 20px;margin:20px 0;
-  }
-  .cd-lbl{
-    font-family:'Poppins',sans-serif;font-weight:600;
-    font-size:13px;color:#e74c3c;
-  }
-  .cd-digits{display:flex;gap:6px;align-items:center}
-  .cd-box{
-    background:var(--cd);color:var(--gb);
-    font-family:'Poppins',sans-serif;font-weight:900;
-    font-size:22px;width:50px;height:50px;border-radius:10px;
-    display:flex;align-items:center;justify-content:center;
-    border:1px solid var(--gd);box-shadow:0 4px 12px rgba(0,0,0,.4);
-  }
-  .cd-sep{font-size:22px;font-weight:900;color:#e74c3c}
-  .cd-sub{font-size:9px;font-family:'Poppins',sans-serif;
-    color:var(--cr);text-align:center;display:block;margin-top:3px}
 
   /* FADE IN removido */
   .fi{opacity:1}
@@ -809,6 +785,10 @@
     .btn-lg{font-size:15px;padding:18px 28px}
     #ribbon{font-size:13px;padding:14px 16px}
     .pcar-slide{width:200px;height:160px}
+    .pack-all-books{flex-wrap:wrap;justify-content:center}
+    .pack-all-books .pab{margin-left:-10px}
+    .ben-card-img{height:180px}
+    .rbox img,.bcard-img img{max-width:100%;height:auto}
   }
   </style>
 </head>
@@ -868,19 +848,7 @@
         <li><span class="chk">✔</span> Ingredientes simples, sin azúcar refinada ni costos altos</li>
         <li><span class="chk">✔</span> Para comer en casa o vender y ganar dinero real</li>
       </ul>
-
-      <!-- Countdown -->
-      <div class="cd-bar">
-        <span class="cd-lbl">⏳ Oferta expira en:</span>
-        <div class="cd-digits">
-          <div><div class="cd-box" id="h1">00</div><span class="cd-sub">Horas</span></div>
-          <span class="cd-sep">:</span>
-          <div><div class="cd-box" id="m1">00</div><span class="cd-sub">Min</span></div>
-          <span class="cd-sep">:</span>
-          <div><div class="cd-box" id="s1">00</div><span class="cd-sub">Seg</span></div>
-        </div>
-      </div>
-
+      
       <a href="#final-cta">
         <button class="btn btn-full btn-pulse">Quiero el Pack Completo Ahora</button>
       </a>
@@ -1398,18 +1366,7 @@
     <p style="font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(14px,2vw,18px);color:var(--gb);margin-bottom:4px">
       Más de 1430 personas ya preparan sus propias barras saludables. Hoy es tu turno.
     </p>
-
-    <!-- Countdown -->
-    <div class="cd-bar" style="max-width:500px;margin:20px auto">
-      <span class="cd-lbl">⏳ Oferta expira en:</span>
-      <div class="cd-digits">
-        <div><div class="cd-box" id="h2">00</div><span class="cd-sub">Horas</span></div>
-        <span class="cd-sep">:</span>
-        <div><div class="cd-box" id="m2">00</div><span class="cd-sub">Min</span></div>
-        <span class="cd-sep">:</span>
-        <div><div class="cd-box" id="s2">00</div><span class="cd-sub">Seg</span></div>
-      </div>
-    </div>
+        </div>
 
     <span class="price-before">ANTES $47 Dólares</span>
     <p style="font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:var(--cr);margin-bottom:4px">
@@ -1592,18 +1549,7 @@
     <p style="font-family:'Poppins',sans-serif;font-size:14px;color:var(--cr);margin-bottom:28px">
       Haz clic y paga en tu moneda local fácilmente
     </p>
-
-    <!-- Countdown -->
-    <div class="cd-bar" style="max-width:500px;margin:0 auto 28px">
-      <span class="cd-lbl">⏳ Oferta expira en:</span>
-      <div class="cd-digits">
-        <div><div class="cd-box" id="h3">00</div><span class="cd-sub">Horas</span></div>
-        <span class="cd-sep">:</span>
-        <div><div class="cd-box" id="m3">00</div><span class="cd-sub">Min</span></div>
-        <span class="cd-sep">:</span>
-        <div><div class="cd-box" id="s3">00</div><span class="cd-sub">Seg</span></div>
-      </div>
-    </div>
+        </div>
 
     <!-- BOTÃO PRINCIPAL — Substituir # pelo link do Hotmart -->
     <a href="#" style="display:inline-block">
@@ -1635,27 +1581,6 @@
      JAVASCRIPT
 =================================================== -->
 <script>
-/* ---- COUNTDOWN ---- */
-(function(){
-  var end = Date.now() + (23*3600 + 59*60)*1000;
-  function pad(n){return n<10?'0'+n:n}
-  function tick(){
-    var r = Math.max(0, end - Date.now());
-    var h=pad(Math.floor(r/3600000)),
-        m=pad(Math.floor(r%3600000/60000)),
-        s=pad(Math.floor(r%60000/1000));
-    [['h1','m1','s1'],['h2','m2','s2'],['h3','m3','s3']].forEach(function(g){
-      ['h','m','s'].forEach(function(k,i){
-        var el=document.getElementById(g[i]);
-        if(el)el.textContent=[h,m,s][i];
-      });
-    });
-    if(r>0)setTimeout(tick,1000);
-  }
-  tick();
-})();
-
-
 /* ---- FAQ ---- */
 document.querySelectorAll('.faq-q').forEach(function(btn){
   btn.addEventListener('click',function(){
