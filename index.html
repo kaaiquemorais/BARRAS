@@ -766,16 +766,34 @@
     .guar-inner{flex-direction:column;text-align:center;padding:32px 20px}
     .wa-bottom{flex-direction:column;align-items:center;text-align:center;padding:24px}
     .wa-checkrow span{justify-content:flex-start}
-    .pack-all-books .pab{width:46px;margin-left:-18px}
+    .pack-all-books .pab{width:52px;margin-left:-16px}
+    .secure-row{flex-wrap:wrap;gap:10px;white-space:normal}
+    .price-block{padding:24px 20px}
+    #hero{padding:48px 16px 80px}
   }
   @media(max-width:600px){
+    html,body{overflow-x:hidden}
     .bonos-grid{grid-template-columns:1fr}
     .pack-img-wrap{grid-template-columns:repeat(2,1fr)}
-    .btn-lg{font-size:15px;padding:18px 28px}
-    #ribbon{font-size:13px;padding:14px 16px}
-    .pack-all-books{flex-wrap:wrap;justify-content:center}
-    .pack-all-books .pab{margin-left:-10px}
-    .ben-card-img{height:180px}
+    .btn-lg{font-size:15px;padding:18px 24px}
+    .btn{font-size:14px;padding:16px 20px}
+    #ribbon{font-size:12px;padding:12px 14px;white-space:normal;line-height:1.4}
+    .pack-all-books{flex-wrap:wrap;justify-content:center;gap:4px}
+    .pack-all-books .pab{width:60px;margin-left:0}
+    .ben-card-img{height:200px}
+    .hero-grid{gap:28px}
+    .hero-left h1{font-size:clamp(24px,7vw,36px)}
+    .price-block{padding:22px 16px}
+    .price-new{font-size:clamp(36px,10vw,52px)}
+    .secure-row{flex-wrap:wrap;gap:8px;white-space:normal;justify-content:center}
+    .secure-row span{font-size:11px}
+    #hero::before{display:none}
+    .testi-card{padding:20px 16px}
+    .wrap{padding:0 16px}
+    .sec-title{font-size:clamp(20px,6vw,28px)}
+    .bonos-wrap{padding:60px 16px}
+    .car-card{width:150px;height:110px}
+    .buyers-row{flex-wrap:wrap;gap:4px}
     .rbox img,.bcard-img img{max-width:100%;height:auto}
   }
   </style>
