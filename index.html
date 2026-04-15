@@ -268,7 +268,6 @@
     animation:scroll 32s linear infinite;
     width:max-content;
   }
-  .car-track:hover{animation-play-state:paused}
   @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
   .car-card{
     width:190px;height:130px;border-radius:var(--r);flex-shrink:0;
@@ -965,21 +964,8 @@
     <span class="tag tag-dk">Vista Previa</span>
     <h2 class="sec-title" style="color:var(--cm)">Barras que ya están <span class="gold">transformando vidas</span></h2>
   </div>
-  <div class="car-track-wrap">
-    <div class="car-track">
-      <div class="car-card cc1"><span class="ci">🥜</span><span class="cn">Barra Almendras y Cacao</span></div>
-      <div class="car-card cc2"><span class="ci">🌾</span><span class="cn">Barra Avena y Mantequilla</span></div>
-      <div class="car-card cc3"><span class="ci">🥥</span><span class="cn">Barra Coco y Miel</span></div>
-      <div class="car-card cc4"><span class="ci">☕</span><span class="cn">Barra Café y Almendras</span></div>
-      <div class="car-card cc5"><span class="ci">🍫</span><span class="cn">Barra Cacao y Dátiles</span></div>
-      <div class="car-card cc6"><span class="ci">🌿</span><span class="cn">Barra Matcha y Chía</span></div>
-      <div class="car-card cc1"><span class="ci">🫐</span><span class="cn">Barra Arándanos y Avena</span></div>
-      <div class="car-card cc2"><span class="ci">🌻</span><span class="cn">Barra Girasol y Pasas</span></div>
-      <div class="car-card cc3"><span class="ci">🍌</span><span class="cn">Barra Plátano y Avena</span></div>
-      <div class="car-card cc4"><span class="ci">🍓</span><span class="cn">Barra Frutilla y Avena</span></div>
-      <div class="car-card cc5"><span class="ci">🌰</span><span class="cn">Barra Nueces y Semillas</span></div>
-      <div class="car-card cc6"><span class="ci">🥭</span><span class="cn">Bolita Piña, Coco y Mango</span></div>
-      <!-- duplicado loop -->
+  <div class="car-track-wrap" id="carWrap">
+    <div class="car-track" id="carTrack">
       <div class="car-card cc1"><span class="ci">🥜</span><span class="cn">Barra Almendras y Cacao</span></div>
       <div class="car-card cc2"><span class="ci">🌾</span><span class="cn">Barra Avena y Mantequilla</span></div>
       <div class="car-card cc3"><span class="ci">🥥</span><span class="cn">Barra Coco y Miel</span></div>
@@ -994,6 +980,25 @@
       <div class="car-card cc6"><span class="ci">🥭</span><span class="cn">Bolita Piña, Coco y Mango</span></div>
     </div>
   </div>
+  <script>
+  (function(){
+    var track = document.getElementById('carTrack');
+    var wrap  = document.getElementById('carWrap');
+    if(!track) return;
+    var cards = track.querySelectorAll('.car-card');
+    var cardW = 190 + 18; // width + gap
+    var idx   = 0;
+    var total = cards.length;
+    function step(){
+      idx = (idx + 1) % total;
+      var maxShift = track.scrollWidth - wrap.offsetWidth;
+      var shift = Math.min(idx * cardW, maxShift);
+      if(idx * cardW > maxShift){ idx = 0; shift = 0; }
+      track.style.transform = 'translateX(-' + shift + 'px)';
+    }
+    setInterval(step, 2200);
+  })();
+  </script>
 </section>
 
 <div class="wave" style="background:#F5E3C0">
