@@ -738,17 +738,6 @@
   #sec-ultra p strong{color:var(--gb);font-weight:700;font-style:normal}
 
   /* =====================================================
-     CARROSSEL FOTOS (6 imagens)
-  ===================================================== */
-  #sec-photo-car{background:#F5E3C0;padding:40px 0 50px;overflow:hidden}
-  .pcar-wrap{position:relative;overflow:hidden}
-  .pcar-track{display:flex;gap:14px;animation:pcarScroll 22s linear infinite;width:max-content}
-  .pcar-track:hover{animation-play-state:paused}
-  @keyframes pcarScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-  .pcar-slide{width:260px;height:200px;border-radius:14px;overflow:hidden;flex-shrink:0;box-shadow:0 6px 20px rgba(61,26,0,.18)}
-  .pcar-slide img{width:100%;height:100%;object-fit:cover;display:block}
-
-  /* =====================================================
      SECAO MARROM "LO QUE DESCUBRIRAS"
   ===================================================== */
   #sec-descubre{background:#3D1A00;padding:70px 20px;text-align:center}
@@ -784,7 +773,6 @@
     .pack-img-wrap{grid-template-columns:repeat(2,1fr)}
     .btn-lg{font-size:15px;padding:18px 28px}
     #ribbon{font-size:13px;padding:14px 16px}
-    .pcar-slide{width:200px;height:160px}
     .pack-all-books{flex-wrap:wrap;justify-content:center}
     .pack-all-books .pab{margin-left:-10px}
     .ben-card-img{height:180px}
@@ -882,33 +870,7 @@
   <svg viewBox="0 0 1440 100" preserveAspectRatio="none" style="display:block;width:100%;height:80px;vertical-align:bottom"><path d="M0,55 C160,25 320,80 480,48 C640,15 800,75 960,42 C1120,15 1300,65 1440,45 L1440,100 L0,100Z" fill="#F5E3C0"/></svg>
 </div>
 
-<!-- ===================================================
-     CARROSSEL FOTOS (6 imagens)
-=================================================== -->
-<section id="sec-photo-car">
-  <div class="pcar-wrap">
-    <div class="pcar-track">
-      <div class="pcar-slide"><img src="https://i.postimg.cc/kXGWw5pX/Captura-de-tela-2026-04-13-152457.png" alt=""/></div>
-      <div class="pcar-slide"><img src="https://i.postimg.cc/2SBhRKmR/Captura-de-tela-2026-04-13-152502.png" alt=""/></div>
-      <div class="pcar-slide"><img src="https://i.postimg.cc/tgQPXNCP/Captura-de-tela-2026-04-13-152504.png" alt=""/></div>
-      <div class="pcar-slide"><img src="https://i.postimg.cc/NMQHXGXq/Captura-de-tela-2026-04-13-152507.png" alt=""/></div>
-      <div class="pcar-slide"><img src="https://i.postimg.cc/2y6LHHTG/Captura-de-tela-2026-04-13-152510.png" alt=""/></div>
-      <div class="pcar-slide"><img src="https://i.postimg.cc/L5bYGzb6/Captura-de-tela-2026-04-13-152513.png" alt=""/></div>
-      <!-- duplicado para loop infinito -->
-      <div class="pcar-slide"><img src="https://i.postimg.cc/kXGWw5pX/Captura-de-tela-2026-04-13-152457.png" alt=""/></div>
-      <div class="pcar-slide"><img src="https://i.postimg.cc/2SBhRKmR/Captura-de-tela-2026-04-13-152502.png" alt=""/></div>
-      <div class="pcar-slide"><img src="https://i.postimg.cc/tgQPXNCP/Captura-de-tela-2026-04-13-152504.png" alt=""/></div>
-      <div class="pcar-slide"><img src="https://i.postimg.cc/NMQHXGXq/Captura-de-tela-2026-04-13-152507.png" alt=""/></div>
-      <div class="pcar-slide"><img src="https://i.postimg.cc/2y6LHHTG/Captura-de-tela-2026-04-13-152510.png" alt=""/></div>
-      <div class="pcar-slide"><img src="https://i.postimg.cc/L5bYGzb6/Captura-de-tela-2026-04-13-152513.png" alt=""/></div>
-    </div>
-  </div>
-</section>
 
-<!-- wave bege → marrom -->
-<div class="wave" style="background:#F5E3C0">
-  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" style="display:block;width:100%;height:80px;vertical-align:bottom"><path d="M0,40 C160,65 320,10 480,45 C640,80 800,15 960,50 C1120,80 1300,20 1440,45 L1440,100 L0,100Z" fill="#3D1A00"/></svg>
-</div>
 
 <!-- ===================================================
      SECAO MARROM — LO QUE DESCUBRIRAS
