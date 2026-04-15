@@ -594,21 +594,8 @@
     padding:44px;box-shadow:var(--shl);
     border:2px solid rgba(196,154,108,.3);
   }
-  .guar-seal{
-    width:150px;height:150px;border-radius:50%;flex-shrink:0;
-    background:linear-gradient(135deg,var(--gd),var(--gb));
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;box-shadow:0 8px 32px rgba(212,160,23,.45);
-  }
-  .guar-seal .gs-i{font-size:32px;display:block}
-  .guar-seal .gs-d{
-    font-family:'Poppins',sans-serif;font-weight:900;
-    font-size:32px;color:var(--cd);line-height:1;
-  }
-  .guar-seal .gs-t{
-    font-family:'Poppins',sans-serif;font-weight:700;
-    font-size:13px;color:var(--cm);
-  }
+  .guar-seal{width:160px;height:160px;flex-shrink:0}
+  .guar-seal img{width:100%;height:100%;object-fit:contain;display:block}
   .guar-text h2{font-size:clamp(22px,3.5vw,34px);color:var(--cm);margin-bottom:12px}
   .guar-text h2 span{color:var(--ml)}
   .guar-text p{font-size:15px;color:var(--td);line-height:1.8;margin-bottom:10px}
@@ -666,19 +653,26 @@
   .pack-all-books{
     display:flex;justify-content:center;align-items:flex-end;
     flex-wrap:nowrap;margin:32px 0;
+    position:relative;padding-bottom:8px;
+  }
+  .pack-all-books::after{
+    content:'';position:absolute;bottom:0;left:10%;right:10%;
+    height:10px;background:linear-gradient(135deg,var(--cm),var(--cb));
+    border-radius:0 0 6px 6px;box-shadow:0 6px 20px rgba(0,0,0,.5);
   }
   .pab{
-    width:72px;height:90px;
-    border-radius:8px;overflow:hidden;
-    border:3px solid rgba(255,255,255,.9);
-    margin-left:-18px;
-    box-shadow:4px 6px 16px rgba(0,0,0,.5);
+    width:64px;height:86px;
+    border-radius:2px 6px 6px 2px;overflow:hidden;
+    border-right:2px solid rgba(255,255,255,.5);
+    border-top:2px solid rgba(255,255,255,.3);
+    margin-left:-14px;
+    box-shadow:-2px 4px 12px rgba(0,0,0,.55),inset -4px 0 8px rgba(0,0,0,.3);
     position:relative;z-index:1;
-    transition:transform .2s,z-index .2s;
+    transition:transform .25s,z-index .25s;
     background:linear-gradient(145deg,#3D1A00,#8B5E3C);
   }
   .pab:first-child{margin-left:0}
-  .pab:hover{transform:translateY(-8px) scale(1.06);z-index:10}
+  .pab:hover{transform:translateY(-12px);z-index:10}
   .pab img{width:100%;height:100%;object-fit:cover;display:block}
   .pab .pabi{display:none}
   .pab p{display:none;
@@ -819,7 +813,7 @@
     .guar-inner{flex-direction:column;text-align:center;padding:32px 20px}
     .wa-bottom{flex-direction:column;align-items:center;text-align:center;padding:24px}
     .wa-checkrow span{justify-content:flex-start}
-    .pack-all-books .pab{width:54px;height:68px;margin-left:-14px}
+    .pack-all-books .pab{width:48px;height:64px;margin-left:-12px}
   }
   @media(max-width:600px){
     .bonos-grid{grid-template-columns:1fr}
@@ -900,7 +894,7 @@
       </div>
 
       <a href="#final-cta">
-        <button class="btn btn-full btn-pulse">🛒 ¡Quiero mis 54 Recetas Ahora!</button>
+        <button class="btn btn-full btn-pulse">¡Quiero mis 54 Recetas Ahora!</button>
       </a>
       <div class="secure-row" style="margin-top:14px">
         <span>🔒 Pago 100% Seguro</span>
@@ -1035,7 +1029,6 @@
       <!-- BOX 1 -->
       <div class="rbox fi">
         <img src="https://i.postimg.cc/ZqTbzBPP/5.png" alt="Barras Clásicas & Energéticas" style="width:100%;display:block"/>
-        <div class="rbox-hd rbox-hd-dk"><h3>Barras Clásicas &amp; Energéticas</h3></div>
         <span class="rcnt">8 Recetas</span>
         <ul class="rlist">
           <li>Maní tostado con miel y avena crujiente</li>
@@ -1052,7 +1045,6 @@
       <!-- BOX 2 -->
       <div class="rbox fi">
         <img src="https://i.postimg.cc/vT8f1Zd9/4.png" alt="Barras de Frutas & Sabores Especiales" style="width:100%;display:block"/>
-        <div class="rbox-hd rbox-hd-md"><h3>Barras de Frutas &amp; Sabores</h3></div>
         <span class="rcnt">14 Recetas</span>
         <ul class="rlist">
           <li>Arándanos rojos y avena tostada</li>
@@ -1075,7 +1067,6 @@
       <!-- BOX 3 -->
       <div class="rbox fi">
         <img src="https://i.postimg.cc/jdFP5T3C/3.png" alt="Barras Premium con Chocolate" style="width:100%;display:block"/>
-        <div class="rbox-hd rbox-hd-lt"><h3>Barras Premium con Chocolate</h3></div>
         <span class="rcnt">6 Recetas</span>
         <ul class="rlist">
           <li>Chocolate 70% con almendras tostadas</li>
@@ -1094,7 +1085,6 @@
       <!-- BOX 4 -->
       <div class="rbox fi">
         <img src="https://i.postimg.cc/DZv86ppp/2.png" alt="Bolitas Energéticas" style="width:100%;display:block"/>
-        <div class="rbox-hd rbox-hd-dk"><h3>Bolitas Energéticas</h3></div>
         <span class="rcnt">8 Recetas</span>
         <ul class="rlist">
           <li>Trufa raw de cacao y almendra</li>
@@ -1111,7 +1101,6 @@
       <!-- BOX 5 -->
       <div class="rbox fi">
         <img src="https://i.postimg.cc/Vv55Qr87/1.png" alt="Snacks Variados & Saludables" style="width:100%;display:block"/>
-        <div class="rbox-hd rbox-hd-md"><h3>Snacks Variados &amp; Saludables</h3></div>
         <span class="rcnt">7 Recetas</span>
         <ul class="rlist">
           <li>Granola artesanal con pecanas y arándanos</li>
@@ -1127,7 +1116,6 @@
       <!-- BOX 6 -->
       <div class="rbox fi">
         <img src="https://i.postimg.cc/jdFP5T3C/3.png" alt="Barras Energéticas con Chocolate" style="width:100%;display:block"/>
-        <div class="rbox-hd rbox-hd-lt"><h3>Barras Energéticas con Chocolate</h3></div>
         <span class="rcnt">7 Recetas</span>
         <ul class="rlist">
           <li>Almendra crocante bañada en cacao</li>
@@ -1395,7 +1383,7 @@
         <li><span class="chk">✔</span> Acceso de inmediato y de por VIDA</li>
       </ul>
       <div class="tc" style="margin-top:10px">
-        <a href="#final-cta"><button class="btn btn-pulse btn-lg">🛒 ¡Quiero el PACK COMPLETO Ahora!</button></a>
+        <a href="#final-cta"><button class="btn btn-pulse btn-lg">¡Quiero el PACK COMPLETO Ahora!</button></a>
       </div>
     </div>
   </div>
@@ -1440,7 +1428,7 @@
     </p>
 
     <a href="#" style="display:inline-block;margin-bottom:24px">
-      <button class="btn btn-pulse btn-lg">🛒 ¡COMPRAR AHORA CON DESCUENTO!</button>
+      <button class="btn btn-pulse btn-lg">¡COMPRAR AHORA CON DESCUENTO!</button>
     </a>
 
     <!-- ¿Qué pasa después de comprar? -->
@@ -1483,13 +1471,11 @@
 <section class="sec-cr fi" id="garantia">
   <div class="wrap">
     <div class="tc" style="margin-bottom:36px">
-      <span class="tag tag-cr">🛡️ Garantía</span>
+      <span class="tag tag-cr">Garantía</span>
     </div>
     <div class="guar-inner">
       <div class="guar-seal">
-        <span class="gs-i">🛡️</span>
-        <span class="gs-d">7</span>
-        <span class="gs-t">Días de<br/>Garantía</span>
+        <img src="https://i.postimg.cc/wMsRPfDg/Garantia-7-dias-webp-1024x1024.webp" alt="Garantía 7 días"/>
       </div>
       <div class="guar-text">
         <h2>Tu inversión está protegida...<br/><span>¡Compra sin preocupaciones!</span></h2>
@@ -1498,7 +1484,7 @@
         </p>
         <p>¡No tienes nada que perder... y mucho que ganar!</p>
         <a href="#final-cta" style="display:inline-block;margin-top:18px">
-          <button class="btn">🛡️ Compra ahora con total seguridad</button>
+          <button class="btn">Compra ahora con total seguridad</button>
         </a>
         <p style="font-size:13px;color:var(--ml);margin-top:10px;font-family:'Poppins',sans-serif;font-weight:600">
           GARANTÍA DE 7 DÍAS: Devolución completa si no estás satisfecho/a.
@@ -1589,7 +1575,7 @@
 =================================================== -->
 <section id="final-cta" class="fi">
   <div class="wrap">
-    <span class="tag tag-gd" style="margin-bottom:22px">🛒 ¡Última oportunidad!</span>
+    <span class="tag tag-gd" style="margin-bottom:22px">¡Última oportunidad!</span>
     <h2>Llévate todo el libro premium<br/><span>"54 recetas de barras sin azúcar"</span><br/>+6 bonos totalmente <span>GRATIS</span> solo por HOY</h2>
 
     <!-- Todos los libros -->
@@ -1627,13 +1613,13 @@
 
     <!-- BOTÃO PRINCIPAL — Substituir # pelo link do Hotmart -->
     <a href="#" style="display:inline-block">
-      <button class="btn btn-pulse btn-lg">🛒 ¡COMPRAR AHORA CON 80% OFF!</button>
+      <button class="btn btn-pulse btn-lg">¡COMPRAR AHORA CON 80% OFF!</button>
     </a>
 
     <div class="secure-row" style="justify-content:center;margin-top:22px">
       <span style="color:var(--cr)">🔒 Pago 100% Seguro</span>
       <span style="color:var(--cr)">📦 Acceso Inmediato</span>
-      <span style="color:var(--cr)">🛡️ Garantía 7 días</span>
+      <span style="color:var(--cr)">Garantía 7 días</span>
     </div>
 
     <!-- Métodos de pago -->
