@@ -664,18 +664,24 @@
   }
   #final-cta h2 span{color:var(--gb)}
   .pack-all-books{
-    display:flex;gap:12px;justify-content:center;
-    flex-wrap:wrap;margin:32px 0;
+    display:flex;justify-content:center;align-items:flex-end;
+    flex-wrap:nowrap;margin:32px 0;
   }
   .pab{
-    width:80px;
+    width:72px;height:90px;
+    border-radius:8px;overflow:hidden;
+    border:3px solid rgba(255,255,255,.9);
+    margin-left:-18px;
+    box-shadow:4px 6px 16px rgba(0,0,0,.5);
+    position:relative;z-index:1;
+    transition:transform .2s,z-index .2s;
     background:linear-gradient(145deg,#3D1A00,#8B5E3C);
-    border-radius:8px;border-left:5px solid var(--gd);
-    padding:14px 8px;text-align:center;
-    box-shadow:4px 4px 14px rgba(0,0,0,.45);
   }
-  .pab .pabi{font-size:24px;display:block;margin-bottom:4px}
-  .pab p{
+  .pab:first-child{margin-left:0}
+  .pab:hover{transform:translateY(-8px) scale(1.06);z-index:10}
+  .pab img{width:100%;height:100%;object-fit:cover;display:block}
+  .pab .pabi{display:none}
+  .pab p{display:none;
     font-family:'Poppins',sans-serif;font-weight:700;
     font-size:7px;color:var(--cr);line-height:1.3;text-transform:uppercase;
   }
@@ -813,7 +819,7 @@
     .guar-inner{flex-direction:column;text-align:center;padding:32px 20px}
     .wa-bottom{flex-direction:column;align-items:center;text-align:center;padding:24px}
     .wa-checkrow span{justify-content:flex-start}
-    .pack-all-books .pab{width:64px}
+    .pack-all-books .pab{width:54px;height:68px;margin-left:-14px}
   }
   @media(max-width:600px){
     .bonos-grid{grid-template-columns:1fr}
@@ -1155,9 +1161,8 @@
     <div class="ben-grid">
 
       <div class="ben-card fi">
-        <div class="ben-card-img" style="background-image:url('https://loremflickr.com/600/320/healthy,snack,bar,kitchen?lock=7');background-size:cover;background-position:center;background-attachment:fixed;position:relative;overflow:hidden">
+        <div class="ben-card-img" style="background-image:url('https://i.postimg.cc/c4HbKQZ3/tempo-passando-rapido-202604150027-(1).jpg');background-size:cover;background-position:center;background-attachment:fixed;position:relative;overflow:hidden">
           <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(30,11,0,.2),rgba(30,11,0,.65));display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:18px;gap:8px">
-            <div style="font-size:40px;filter:drop-shadow(0 3px 8px rgba(0,0,0,.5))">⏱️</div>
             <div style="background:rgba(0,0,0,.45);border-radius:50px;padding:5px 18px">
               <span style="font-size:12px;font-weight:800;color:#F0BA20;letter-spacing:.04em">20-30 MIN</span>
             </div>
@@ -1170,9 +1175,8 @@
       </div>
 
       <div class="ben-card fi">
-        <div class="ben-card-img" style="background-image:url('https://loremflickr.com/600/320/food,business,selling,market?lock=8');background-size:cover;background-position:center;background-attachment:fixed;position:relative;overflow:hidden">
+        <div class="ben-card-img" style="background-image:url('https://i.postimg.cc/j5S5Vg07/faca-uma-imagem-202604150021.jpg');background-size:cover;background-position:center;background-attachment:fixed;position:relative;overflow:hidden">
           <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(90,45,12,.2),rgba(90,45,12,.65));display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:18px;gap:8px">
-            <div style="font-size:40px;filter:drop-shadow(0 3px 8px rgba(0,0,0,.4))">💰</div>
             <div style="background:rgba(30,11,0,.5);border-radius:50px;padding:5px 18px">
               <span style="font-size:12px;font-weight:800;color:#fff;letter-spacing:.04em">INGRESOS REALES</span>
             </div>
@@ -1185,9 +1189,8 @@
       </div>
 
       <div class="ben-card fi">
-        <div class="ben-card-img" style="background-image:url('https://loremflickr.com/600/320/natural,ingredient,food,organic?lock=9');background-size:cover;background-position:center;background-attachment:fixed;position:relative;overflow:hidden">
+        <div class="ben-card-img" style="background-image:url('https://i.postimg.cc/8zLBs5Fm/ingredientes-para-barra-202604150027.jpg');background-size:cover;background-position:center;background-attachment:fixed;position:relative;overflow:hidden">
           <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(30,11,0,.2),rgba(30,11,0,.65));display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:18px;gap:8px">
-            <div style="font-size:40px;filter:drop-shadow(0 3px 8px rgba(0,0,0,.5))">🥦</div>
             <div style="background:rgba(212,160,23,.3);border:1px solid rgba(240,186,32,.5);border-radius:50px;padding:5px 18px">
               <span style="font-size:12px;font-weight:800;color:#F0BA20;letter-spacing:.04em">100% NATURAL</span>
             </div>
@@ -1366,13 +1369,13 @@
 
     <!-- todos los libros juntos -->
     <div class="pack-all-books" style="margin:32px 0 48px">
-      <div class="pab"><span class="pabi">📗</span><p>Recetario Principal</p></div>
-      <div class="pab"><span class="pabi">🍫</span><p>Barras con Chocolate</p></div>
-      <div class="pab"><span class="pabi">🎂</span><p>Pasteles sin Culpa</p></div>
-      <div class="pab"><span class="pabi">🚀</span><p>Estrategias de Venta</p></div>
-      <div class="pab"><span class="pabi">🍫</span><p>Brownies Saludables</p></div>
-      <div class="pab"><span class="pabi">🍪</span><p>Galletas Rápidas</p></div>
-      <div class="pab"><span class="pabi">🎨</span><p>Glaseados sin Azúcar</p></div>
+      <div class="pab"><img src="https://i.postimg.cc/tCqBbyvw/Captura-de-tela-2026-04-13-152437.png" alt="Recetario Principal"/></div>
+      <div class="pab"><img src="https://i.postimg.cc/J4T7Cc7d/9.png" alt="Barras con Chocolate"/></div>
+      <div class="pab"><img src="https://i.postimg.cc/LXYRSr54/Texto-do-seu-paragrafo.png" alt="Pasteles sin Culpa"/></div>
+      <div class="pab"><img src="https://i.postimg.cc/k4dqvTwS/11.png" alt="Estrategias de Venta"/></div>
+      <div class="pab"><img src="https://i.postimg.cc/G2yfprCr/Texto-do-seu-paragrafo-(1).png" alt="Brownies Saludables"/></div>
+      <div class="pab"><img src="https://i.postimg.cc/KvsbHGQ6/13.png" alt="Galletas Rápidas"/></div>
+      <div class="pab"><img src="https://i.postimg.cc/XYGWMRzK/14.png" alt="Glaseados sin Azúcar"/></div>
     </div>
 
     <div style="background:rgba(255,255,255,.06);border:1.5px solid rgba(212,160,23,.3);border-radius:var(--rl);padding:40px 36px;max-width:860px;margin:0 auto;text-align:left">
@@ -1591,13 +1594,13 @@
 
     <!-- Todos los libros -->
     <div class="pack-all-books" style="margin:32px 0">
-      <div class="pab"><span class="pabi">📗</span><p>Recetario Principal</p></div>
-      <div class="pab"><span class="pabi">🍫</span><p>Barras con Chocolate</p></div>
-      <div class="pab"><span class="pabi">🎂</span><p>Pasteles sin Culpa</p></div>
-      <div class="pab"><span class="pabi">🚀</span><p>Ventas y Emprender</p></div>
-      <div class="pab"><span class="pabi">🍫</span><p>Brownies Saludables</p></div>
-      <div class="pab"><span class="pabi">🍪</span><p>Galletas</p></div>
-      <div class="pab"><span class="pabi">🎨</span><p>Glaseados</p></div>
+      <div class="pab"><img src="https://i.postimg.cc/tCqBbyvw/Captura-de-tela-2026-04-13-152437.png" alt="Recetario Principal"/></div>
+      <div class="pab"><img src="https://i.postimg.cc/J4T7Cc7d/9.png" alt="Barras con Chocolate"/></div>
+      <div class="pab"><img src="https://i.postimg.cc/LXYRSr54/Texto-do-seu-paragrafo.png" alt="Pasteles sin Culpa"/></div>
+      <div class="pab"><img src="https://i.postimg.cc/k4dqvTwS/11.png" alt="Estrategias de Venta"/></div>
+      <div class="pab"><img src="https://i.postimg.cc/G2yfprCr/Texto-do-seu-paragrafo-(1).png" alt="Brownies Saludables"/></div>
+      <div class="pab"><img src="https://i.postimg.cc/KvsbHGQ6/13.png" alt="Galletas Rápidas"/></div>
+      <div class="pab"><img src="https://i.postimg.cc/XYGWMRzK/14.png" alt="Glaseados sin Azúcar"/></div>
     </div>
 
     <p class="price-before">ANTES $47 Dólares</p>
