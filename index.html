@@ -761,14 +761,6 @@
   /* =====================================================
      HERO PHOTO CAROUSEL (3 imagens topo)
   ===================================================== */
-  #hero-top-car{background:#F5E3C0;padding:0;overflow:hidden;position:relative}
-  .htc-wrap{position:relative;overflow:hidden}
-  .htc-track{display:flex;transition:transform .5s ease}
-  .htc-slide{min-width:100%;max-height:320px;overflow:hidden;flex-shrink:0}
-  .htc-slide img{width:100%;height:320px;object-fit:cover;display:block}
-  .htc-dots{display:flex;justify-content:center;gap:8px;padding:10px 0 6px}
-  .htc-dot{width:8px;height:8px;border-radius:50%;background:var(--car);cursor:pointer;transition:background .3s,transform .3s}
-  .htc-dot.active{background:var(--cm);transform:scale(1.3)}
 
   /* =====================================================
      SECAO MARROM "DEJA LOS ULTRAPROCESADOS"
@@ -829,8 +821,6 @@
     .btn-lg{font-size:15px;padding:18px 28px}
     #ribbon{font-size:13px;padding:14px 16px}
     .pcar-slide{width:200px;height:160px}
-    .htc-slide img{height:240px}
-    .htc-slide{max-height:240px}
   }
   </style>
 </head>
@@ -844,23 +834,6 @@
 </div>
 
 
-<!-- ===================================================
-     HERO TOP CAROUSEL (3 imagens)
-=================================================== -->
-<section id="hero-top-car">
-  <div class="htc-wrap">
-    <div class="htc-track" id="htcTrack">
-      <div class="htc-slide"><img src="https://i.postimg.cc/yYCzyJdX/Captura-de-tela-2026-04-13-152425.png" alt=""/></div>
-      <div class="htc-slide"><img src="https://i.postimg.cc/nhHbN6q7/Captura-de-tela-2026-04-13-152418.png" alt=""/></div>
-      <div class="htc-slide"><img src="https://i.postimg.cc/wBMKjLfp/Captura-de-tela-2026-04-13-152431.png" alt=""/></div>
-    </div>
-  </div>
-  <div class="htc-dots" id="htcDots">
-    <div class="htc-dot active" onclick="htcGo(0)"></div>
-    <div class="htc-dot" onclick="htcGo(1)"></div>
-    <div class="htc-dot" onclick="htcGo(2)"></div>
-  </div>
-</section>
 
 
 <!-- ===================================================
@@ -1770,21 +1743,6 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
 </script>
 
 <script>
-/* ---- HERO TOP CAROUSEL (3 slides) ---- */
-(function(){
-  var track=document.getElementById('htcTrack');
-  var dots=document.querySelectorAll('.htc-dot');
-  var cur=0,total=3,timer;
-  function htcSet(n){
-    cur=n;
-    track.style.transform='translateX(-'+cur*100+'%)';
-    dots.forEach(function(d,i){d.classList.toggle('active',i===cur)});
-  }
-  window.htcGo=htcSet;
-  function next(){htcSet((cur+1)%total)}
-  timer=setInterval(next,3500);
-  track.parentElement.addEventListener('touchstart',function(e){clearInterval(timer);},{ passive:true });
-})();
 </script>
 </body>
 </html>
